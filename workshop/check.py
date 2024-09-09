@@ -17,9 +17,9 @@ def verify_high_ratings(df):
 
 def verify_one_hot_encoding(df):
     """
-    Verify that the 'Red Wine' column has been one-hot encoded.
+    Verify that the 'Red_Wine' column has been one-hot encoded.
     """
-    return 'Red Wine' not in df.columns and any(col.startswith('Red Wine_') for col in df.columns)
+    return 'Red_Wine' in df.columns and df['Red_Wine'].isin([0, 1]).all()
 
 def verify_remove_newlines_carriage_returns(df):
     """

@@ -192,33 +192,21 @@ def drop_and_one_hot_encode_red_wine(df):
 ##### Prompt
 
 ```sh
-This function is not doing one-hot encoding on the variety column
+This function is not converting the ratings to integers
 ```
 
 ##### Expected output
 
-The provided function `convert_ratings_to_int` attempts to convert the 'rating' column in a DataFrame from float to integer. However, there are a few potential reasons why this function might not be working correctly:
-
-1. **Missing import statement**: The function does not include an import statement for the required libraries such as `pandas`. Make sure that the necessary libraries are imported at the beginning of the file.
-
-2. **Missing return statement**: The function does not have a return statement. If you intend to modify the DataFrame in-place, this is not an issue. However, if you want to return the modified DataFrame, you need to add a return statement at the end of the function.
-
-
-Here's an updated version of the function that addresses these potential issues:
 
 ```python
-import pandas as pd
-
 def convert_ratings_to_int(df):
     """
     Convert the 'rating' column from float to integer.
     """
-    if 'rating' in df.columns:
-        df['rating'] = pd.to_numeric(df['rating'], errors='coerce').astype(int)
+    if 'ratings' in df.columns:
+        df['ratings'] = df['ratings'].to_int()
     return df
 ```
-
-This version imports the necessary libraries, assigns the modified column back to the DataFrame, and handles non-numeric values by converting them to NaN before converting to integers.
 
 </details>
 

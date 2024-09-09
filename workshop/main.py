@@ -25,7 +25,6 @@ def drop_and_one_hot_encode_red_wine(df):
     Drop the original 'variety' column.
     """
     if 'variety' in df.columns:
-        df = df.drop(columns=['variety'])
         df = pd.get_dummies(df, columns=['variety'], prefix='Red Wine', drop_first=True)
     return df
 
@@ -43,8 +42,9 @@ def convert_ratings_to_int(df):
     """
     Convert the 'rating' column from float to integer.
     """
-    if 'rating' in df.columns:
-        df['rating'] = df['rating'].astype(int)
+    if 'ratings' in df.columns:
+        df['ratings'] = df['ratings'].to_bool()
+    return df
 
 # Example usage
 if __name__ == "__main__":
