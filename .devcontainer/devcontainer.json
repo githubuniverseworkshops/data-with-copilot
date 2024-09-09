@@ -24,6 +24,7 @@
 		"vscode": {
 			"settings": {
 			  "python.defaultInterpreterPath": "/home/vscode/venv/bin/python",
+			  "python.terminal.activateEnvInCurrentTerminal": true,
 			  "terminal.integrated.cwd": "workshop"
 			},
 			"extensions": [
