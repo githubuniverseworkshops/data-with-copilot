@@ -96,8 +96,6 @@ This repository is Codespaces-ready and is pre-configured so that you have all d
     [FAIL]   verify_ratings_to_int - The 'ratings' column was not converted to integers correctly.
     ```
 
-    (Why not use pytest?)
-
 ### 5. Open relevant files
 
 :hourglass_flowing_sand: **~2min**
