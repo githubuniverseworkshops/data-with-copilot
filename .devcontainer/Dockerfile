@@ -10,4 +10,5 @@ ARG VENV_PATH="/home/vscode/venv"
 COPY workshop/requirements.txt /tmp/pip-tmp/
 RUN su vscode -c "python -m venv /home/vscode/venv" \
    && su vscode -c "${VENV_PATH}/bin/pip --disable-pip-version-check --no-cache-dir install -r /tmp/pip-tmp/requirements.txt" \
-   && rm -rf /tmp/pip-tmp
+   && rm -rf /tmp/pip-tmp \
+   && echo '\n# Path to your virtual environment\nVIRTUAL_ENV_PATH="/home/vscode/venv"\n\n# Activate the virtual environment if it exists\nif [ -d "$VIRTUAL_ENV_PATH" ]; then\n    source "$VIRTUAL_ENV_PATH/bin/activate"\nfi\n' >> /home/vscode/.zshrc
