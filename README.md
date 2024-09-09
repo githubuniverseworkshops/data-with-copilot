@@ -7,6 +7,10 @@
   <a href="#learning-objectives">Learning Objectives</a>
 </p>
 
+> [!NOTE]
+> Looking for the workshop? Head over to [the workshop directory](./workshop)
+
+
 - **Who is this for**: Any tecnologist that wants to understand advanced GitHub Copilot features as it applies to working with Python and data. Software Engineers, Data Engineers, Data Scientists, and anyone working with Python or data might benefit from this workshop too.
 - **What you'll learn**: You'll use advanced GItHub Copilot features and apply it to a project using Python and Data. You will learn how to ask questions about the project and apply them to other data and programming projects.
 - **What you'll build**: A command-line tool that uses Python and transforms a CSV dataset so that it can be used in a data pipeline or a CI/CD environment.
