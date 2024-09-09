@@ -106,10 +106,6 @@ GitHub Copilot benefits from having context. One way to enhance context is by op
 
 - Open the `main.py`, `check.py`, `train.csv`, and `transformed_train.csv` files
 
-(Train.csv is too large to open in GitHub Codespaces by default)
-(How do you open each of them and keep them open in VS Code? Mine replace each other)
-(Is this actually needed, given the next step uses @workspace explicitly?)
-
 ## Development
 
 ### 1. See how much you can learn about the project and the data
