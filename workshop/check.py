@@ -11,8 +11,8 @@ def verify_high_ratings(df):
     """
     Verify that all ratings are 90 or higher.
     """
-    if 'ratings' in df.columns:
-        return df['ratings'].min() >= 90
+    if 'rating' in df.columns:
+        return df['rating'].min() >= 90
     return False
 
 def verify_one_hot_encoding(df):
@@ -32,10 +32,10 @@ def verify_remove_newlines_carriage_returns(df):
 
 def verify_ratings_to_int(df):
     """
-    Verify that the 'ratings' column has been converted to integers.
+    Verify that the 'rating' column has been converted to integers.
     """
-    if 'ratings' in df.columns:
-        return pd.api.types.is_integer_dtype(df['ratings'])
+    if 'rating' in df.columns:
+        return pd.api.types.is_integer_dtype(df['rating'])
     return False
 
 # Example usage

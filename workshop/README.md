@@ -5,7 +5,6 @@
 
 This repository contains the source code for the complete workshop. You will follow the step-by-step guide below, completing all the steps while working with data and GitHub Copilot within Codespaces.
 
-
 > [!NOTE]
 > This repo is intended to give an introduction to various **GitHub Copilot** features, such as **Copilot Chat** and **inline chat**. Hence the step-by-step guides below contain the general description of what needs to be done, and Copilot Chat or inline chat can support you in generating the necessary commands.
 >
@@ -21,7 +20,6 @@ In this workshop, you will be working with data from a CSV file included in this
 1. Identify and implement validations
 1. Create a command-line tool that can be used in CI/CD environments
 
-
 ## Preparation
 
 This repository is Codespaces-ready and is pre-configured so that you have all dependencies installed including the Visual Studio Code extensions necessary to work with GitHub Copilot and Python:
@@ -33,7 +31,7 @@ This repository is Codespaces-ready and is pre-configured so that you have all d
 > [!NOTE]
 > If using this repository in your account or a non-GitHub-Universe organization, you might incur in charges or consumption of your free quoota for Codespaces.
 
-#### 1. Create a new repository from this template
+### 1. Create a new repository from this template
 
 :hourglass_flowing_sand: **~2min**
 
@@ -43,46 +41,62 @@ This repository is Codespaces-ready and is pre-configured so that you have all d
 - Set visibility to `Private`
 - Click `Create repository`
 
-#### 2. Create a Codespace using the provided template
+### 2. Create a Codespace using the provided template
 
 :hourglass_flowing_sand: **~3min**
 
 - In the newly created repo, click `Code` :point_right: `Codespaces` :point_right: `[ellipsis menu]` :point_right: `New with options` :point_right: _Ensure that `Dev container configuration` is set to `Default project configuration`_ :point_right: `Create codespace`
-- ❗If you're having problems launching the Codespace then you can also clone the repo and continue from here in your IDE
+- ❗If you're having problems launching the Codespace then you can also clone the repo and continue from here in your IDE:
 
-> [!NOTE]
-> There is no need to push changes back to the repo during the workshop
+    ```sh
+    git clone https://github.com/<YOUR_NAME_SPACE>/<YOUR_REPO_NAME>.git
+    cd <YOUR_REPO_NAME>
+    ```
 
-```sh
-git clone https://github.com/<YOUR_NAME_SPACE>/<YOUR_REPO_NAME>.git
-cd <YOUR_REPO_NAME>
-```
+    > [!NOTE]
+    > There is no need to push changes back to the repo during the workshop
 
-#### 3. Verify Python is installed and set correctly
-
-:hourglass_flowing_sand: **~2min**
-
-- Use the command palette to toggle the terminal
-- Run `which python` and make sure it points to the Virtual Environment
-- Run `which pip` and ensure that it also points to the Virtual Environment
-
-
-#### 4. Run the Python scripts
+### 3. Verify Python is installed and set correctly
 
 :hourglass_flowing_sand: **~2min**
 
-- Head over to the `workshop` directory and run `python main.py`, no errors should occur
-- Run `python check.py` and see the output, there should be some OK and some FAIL lines
-  - Output should look like:
-  ```
-  [OK  ]   verify_drop_notes
-  [FAIL]   verify_high_ratings - Not all ratings are 90 or higher.
-  [FAIL]   verify_one_hot_encoding - The 'Red Wine' column was not one-hot encoded correctly.
-  [OK  ]   verify_remove_newlines_carriage_returns
-  [FAIL]   verify_ratings_to_int - The 'ratings' column was not converted to integers correctly.
-  ```
+- Use the command palette to toggle the terminal (search for "Create new terminal")
+- Run `which python` and make sure it points to the Virtual Environment (`home/vscode/venv/bin/python`)
+- Run `which pip` and ensure that it also points to the Virtual Environment (`home/vscode/venv/bin/pip`)
 
-#### 5. Open relevant files
+### 4. Run the Python scripts
+
+:hourglass_flowing_sand: **~2min**
+
+- In the terminal, navigate to the `workshop` directory by running:
+
+    ```shell
+    cd workshop
+    ```
+
+- Run the `main.py` script and confirm no errors occur:
+
+    ```shell
+    python main.py
+    ```
+
+- Run the `check.py` script and confirm no errors occur:
+
+    ```shell
+    python check.py
+    ```
+
+    There should be some OK and some FAIL lines:
+
+    ```shell
+    [OK  ]   verify_drop_notes
+    [FAIL]   verify_high_ratings - Not all ratings are 90 or higher.
+    [FAIL]   verify_one_hot_encoding - The 'Red Wine' column was not one-hot encoded correctly.
+    [OK  ]   verify_remove_newlines_carriage_returns
+    [FAIL]   verify_ratings_to_int - The 'ratings' column was not converted to integers correctly.
+    ```
+
+### 5. Open relevant files
 
 :hourglass_flowing_sand: **~2min**
 
@@ -90,27 +104,26 @@ GitHub Copilot benefits from having context. One way to enhance context is by op
 
 - Open the `main.py`, `check.py`, `train.csv`, and `transformed_train.csv` files
 
-
 ## Development
 
-
-#### 1. See how much you can learn about the project and the data
+### 1. See how much you can learn about the project and the data
 
 :hourglass_flowing_sand: **~5min**
 
-- Open GitHub Copilot Chat and use the `@workspace` agent
-- Ask Copilot about what the `main.py` and `check.py` files are doing
-- Further, with the `@workspace` agent, ask Copilot what is the nature of the data you are going to work with
-
+- Open GitHub Copilot Chat
+- Use the `@workspace` agent to ask Copilot what the `main.py` and `check.py` files are doing
+- Again, with the `@workspace` agent, ask Copilot what is the nature of the data you are going to work with
 
 #### 2. Fix the high ratings function
 
 :hourglass_flowing_sand: **~3min**
 
 - In `main.py` find the `select_high_ratings()` function
-- Open inline chat with `Ctrl-i`
+- Insert your cursor in the function signature or body somewhere
+- Open inline chat with `Ctrl-i` or `Cmd-i` (on Mac)
 - Prefix your prompt with the `/explain` slash command
 - Ask why this function might not be working and implement any potential fixes
+- Re-generate `transformed_train.csv` by running `python main.py`
 - Verify the fix by running `python check.py` with this function returning an `OK`
 
 <details>
@@ -136,15 +149,14 @@ Based on the provided code, there are a few potential reasons why the `select_hi
 > [!NOTE]
 > Feel free to use the GitHub Copilot Chat to implement or corroborate the fix
 
-
 #### 3. Fix the one-hot encoding problem
 
 :hourglass_flowing_sand: **~3min**
 
-- Select the `drop_and_one_hot_encode_red_wine()` function and open inline chat (Ctrl-i)
+- Select the `drop_and_one_hot_encode_red_wine()` function and open inline chat (Ctrl-i/ Cmd-i)
 - Use the `/fix` slash command to ask GitHub Copilot to suggest a potential fix
+- Re-generate `transformed_train.csv` by running `python main.py`
 - Verify the fix by running `python check.py` with this function returning an `OK`
-
 
 <details>
 <summary>Cheatsheet</summary>
@@ -171,20 +183,15 @@ def drop_and_one_hot_encode_red_wine(df):
 
 </details>
 
-
-> [!NOTE]
-> Run the `python check.py` to verify things are working and that the function is returning an `OK`
-
-
-#### 4. Fix the ratings convertion to int
+#### 4. Fix the ratings conversion to int
 
 :hourglass_flowing_sand: **~3min**
 
-- Select the `convert_ratings_to_int()` function and open inline chat (Ctrl-i)
+- Select the `convert_ratings_to_int()` function and open inline chat (Ctrl-i / Cmd-i)
 - Use the `/explain` slash command to ask GitHub Copilot why this function might not be working correctly
 - Identify the problem and implement the fix
+- Re-generate `transformed_train.csv` by running `python main.py`
 - Verify the fix by running `python check.py` with this function returning an `OK`
-
 
 <details>
 <summary>Cheatsheet</summary>
@@ -203,17 +210,12 @@ def convert_ratings_to_int(df):
     """
     Convert the 'rating' column from float to integer.
     """
-    if 'ratings' in df.columns:
-        df['ratings'] = df['ratings'].to_int()
+    if 'rating' in df.columns:
+        df['rating'] = df['rating'].to_int()
     return df
 ```
 
 </details>
-
-
-> [!NOTE]
-> Run the `python check.py` to verify things are working and that the function is returning an `OK`
-
 
 ## Testing
 
@@ -221,7 +223,7 @@ A robust Python project can benefit from testing. You will add some unit tests a
 
 Make sure you have the terminal open by running the command palette and typing `toggle terminal`
 
-#### 1. Test your CLI
+### 1. Test your CLI
 
 :hourglass_flowing_sand: **~5min**
 
@@ -235,8 +237,7 @@ The output should give you a failure.
 :hourglass_flowing_sand: **~5min**
 
 - Select the output in the terminal and paste it into GitHub Copilot Chat
-- Use the output from the chat to implement the fix
-
+- Use the output from the chat to implement a fix in `test_main.py`
 
 <details>
 <summary>Cheatsheet</summary>
@@ -256,10 +257,11 @@ Fix the test case: Ensure the column name in the test case matches the column na
 
 :hourglass_flowing_sand: **~5min**
 
-- Select the one hot encoding function in `main.py`
-- Ensure that the `python check.py` has all OK output, otherwise this might not work.
-- Use inline chat with `Ctrl-i` and use the `/tests` slash command to get suggestions on tests
-- Review the output, accept it, and verify with the `pytest -v` command. All tests should be passing
+- Ensure that the `python check.py` has all OK output, otherwise this step might not work.
+- Select the `drop_and_one_hot_encode_red_wine` function in `main.py`
+- Open inline chat with `Ctrl-i`/`Cmd-i`
+- Use the `/tests` slash command to get suggestions on tests
+- Review the output, accept it, and verify with the `pytest -v` command. All tests should be passing, and you should have more tests than before.
 
 <details>
 <summary>Cheatsheet</summary>
@@ -319,17 +321,13 @@ def test_drop_and_one_hot_encode_red_wine_dataframe_unchanged():
 ```
 </details>
 
-> [!NOTE]
-> Run the `pytest` command to verify that all tests are passing and that you have more tests than before
-
-
 ## Bonus!
 
 There are a couple of bonus challenges if you've completed all the tasks and your scripts are in good shape.
 
 ### Bonus Challenge 1 - Create a robust CLI tool
 
-- Use GitHUb Copilot chat with the `@workspace` prefix to convert the project into a CLI with options and a help menu
+- Use GitHub Copilot chat with the `@workspace` prefix to convert the project into a CLI with options and a help menu
 - Ensure that the prompt specifies no external dependencies and it should only use the standard library
 
 <details>
@@ -496,10 +494,9 @@ This project is licensed under the MIT License. See the [LICENSE](../LICENSE) fi
 ```
 </details>
 
-
 ## Clean-up
 
-#### 1. Delete your Codespace
+### 1. Delete your Codespace
 
 :hourglass_flowing_sand: **~1min**
 
