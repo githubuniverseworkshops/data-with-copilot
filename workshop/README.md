@@ -10,7 +10,7 @@ This repository contains the source code for the complete workshop. You will fol
 >
 > Each step (where applicable) also contains a `Cheatsheet` which can be used to validate the Copilot suggestion(s) against the correct command.
 >
-> :bulb: Play around with different prompts and see how it affects the accuracy of the GitHub Copilot suggestions. For example, when using inline chat, you can use an additional prompt to refine the response without having to rewrite the whole prompt.
+> 💡 Play around with different prompts and see how it affects the accuracy of the GitHub Copilot suggestions. For example, when using inline chat, you can use an additional prompt to refine the response without having to rewrite the whole prompt.
 
 ## Data Project features
 
@@ -33,7 +33,7 @@ This repository is Codespaces-ready and is pre-configured so that you have all d
 
 ### 1. Create a new repository from this template
 
-:hourglass_flowing_sand: **~2min**
+⏳ **~2min**
 
 - Click `Use this template` :point_right: `Create a new repository`
 - Set the owner to the GitHub Workshop organization: `githubuniverseworkshop`
@@ -43,7 +43,7 @@ This repository is Codespaces-ready and is pre-configured so that you have all d
 
 ### 2. Create a Codespace using the provided template
 
-:hourglass_flowing_sand: **~3min**
+⏳ **~3min**
 
 - In the newly created repo, click `Code` :point_right: `Codespaces` :point_right: `[ellipsis menu]` :point_right: `New with options` :point_right: _Ensure that `Dev container configuration` is set to `Default project configuration`_ :point_right: `Create codespace`
 - ❗If you're having problems launching the Codespace then you can also clone the repo and continue from here in your IDE:
@@ -58,7 +58,7 @@ This repository is Codespaces-ready and is pre-configured so that you have all d
 
 ### 3. Verify Python is installed and set correctly
 
-:hourglass_flowing_sand: **~2min**
+⏳ **~2min**
 
 - Use the command palette to toggle the terminal (search for "Create new terminal")
 - Run `which python` and make sure it points to the Virtual Environment (`home/vscode/venv/bin/python`)
@@ -66,7 +66,7 @@ This repository is Codespaces-ready and is pre-configured so that you have all d
 
 ### 4. Run the Python scripts
 
-:hourglass_flowing_sand: **~2min**
+⏳ **~2min**
 
 - In the terminal, navigate to the `workshop` directory by running:
 
@@ -98,7 +98,7 @@ This repository is Codespaces-ready and is pre-configured so that you have all d
 
 ### 5. Open relevant files
 
-:hourglass_flowing_sand: **~2min**
+⏳ **~2min**
 
 GitHub Copilot benefits from having context. One way to enhance context is by opening relevant files.
 
@@ -108,7 +108,7 @@ GitHub Copilot benefits from having context. One way to enhance context is by op
 
 ### 1. See how much you can learn about the project and the data
 
-:hourglass_flowing_sand: **~5min**
+⏳ **~5min**
 
 - Open GitHub Copilot Chat
 - Use the `@workspace` agent to ask Copilot what the `main.py` and `check.py` files are doing
@@ -116,7 +116,7 @@ GitHub Copilot benefits from having context. One way to enhance context is by op
 
 #### 2. Fix the high ratings function
 
-:hourglass_flowing_sand: **~3min**
+⏳ **~3min**
 
 - In `main.py` find the `select_high_ratings()` function
 - Insert your cursor in the function signature or body somewhere
@@ -151,7 +151,7 @@ Based on the provided code, there are a few potential reasons why the `select_hi
 
 #### 3. Fix the one-hot encoding problem
 
-:hourglass_flowing_sand: **~3min**
+⏳ **~3min**
 
 - Select the `drop_and_one_hot_encode_red_wine()` function and open inline chat (Ctrl-i/ Cmd-i)
 - Use the `/fix` slash command to ask GitHub Copilot to suggest a potential fix
@@ -185,7 +185,7 @@ def drop_and_one_hot_encode_red_wine(df):
 
 #### 4. Fix the ratings conversion to int
 
-:hourglass_flowing_sand: **~3min**
+⏳ **~3min**
 
 - Select the `convert_ratings_to_int()` function and open inline chat (Ctrl-i / Cmd-i)
 - Use the `/explain` slash command to ask GitHub Copilot why this function might not be working correctly
@@ -225,7 +225,7 @@ Make sure you have the terminal open by running the command palette and typing `
 
 ### 1. Test your CLI
 
-:hourglass_flowing_sand: **~5min**
+⏳ **~5min**
 
 - This project has the Pytest test runner and framework pre-installed, make sure it is available by running `pytest --version`
 - Run the tests while in the `workshop` directory by using the following command: `pytest -v`
@@ -234,7 +234,7 @@ The output should give you a failure.
 
 #### 2. Fix the failing test
 
-:hourglass_flowing_sand: **~5min**
+⏳ **~5min**
 
 - Select the output in the terminal and paste it into GitHub Copilot Chat
 - Use the output from the chat to implement a fix in `test_main.py`
@@ -255,7 +255,7 @@ Fix the test case: Ensure the column name in the test case matches the column na
 
 #### 3. Add tests for the one hot encoding function
 
-:hourglass_flowing_sand: **~5min**
+⏳ **~5min**
 
 - Ensure that the `python check.py` has all OK output, otherwise this step might not work.
 - Select the `drop_and_one_hot_encode_red_wine` function in `main.py`
@@ -498,7 +498,7 @@ This project is licensed under the MIT License. See the [LICENSE](../LICENSE) fi
 
 ### 1. Delete your Codespace
 
-:hourglass_flowing_sand: **~1min**
+⏳ **~1min**
 
 Before deleting, if you wish, you can push your changes. Remember workshop repositories are temporary too.
 
