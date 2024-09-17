@@ -380,9 +380,9 @@ if __name__ == "__main__":
 
 ### Bonus Challenge 2 - Document your project
 
-- Use GitHUb Copilot chat with the `@workspace` prefix to get started documenting your project using Markdown in a README.md
-- Create a new file in the `workshop/` directory called `README.md`
-- Ask with the `@workspace` prefix to help documenting the project, the nature of the data in the CSV files, and how the CLI works.
+- Create a new `docs/` folder and a file called `README.md`
+- Use GitHub Copilot chat with the `@workspace` prefix to get started documenting your project using Markdown in a README.md
+- In your prompt, ask for help documenting the project goals, the nature of the data in the CSV files, and how the CLI works.
 
 <details>
 <summary>Cheatsheet</summary>
