@@ -68,11 +68,6 @@ This repository is Codespaces-ready and is pre-configured so that you have all d
 
 ⏳ **~2min**
 
-- In the terminal, navigate to the `workshop` directory by running:
-
-    ```shell
-    cd workshop
-    ```
 
 - Run the `main.py` script and confirm no errors occur:
 
