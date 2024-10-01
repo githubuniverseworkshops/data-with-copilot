@@ -34,7 +34,7 @@
 			  "python.terminal.activateEnvInCurrentTerminal": true,
 			  "terminal.integrated.cwd": "workshop",
 			  "workbench.editorAssociations": {
-			    "README.md": "vscode.markdown.preview.editor"
+			    "*.md": "vscode.markdown.preview.editor"
 			  }
 			},
 			"extensions": [
