@@ -21,6 +21,13 @@
 
 	// Configure tool-specific properties.
 	"customizations": {
+		"codespaces": {
+			"openFiles": [
+			  "workshop/README.md",
+			  "workshop/main.py",
+			  "workshop/check.py"
+			]
+		},
 		"vscode": {
 			"settings": {
 			  "python.defaultInterpreterPath": "/home/vscode/venv/bin/python",
