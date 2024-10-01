@@ -32,6 +32,7 @@ This repository is Codespaces-ready and is pre-configured so that you have all d
 > If using this repository in your account or a non-GitHub-Universe organization, you might incur in charges or consumption of your free quoota for Codespaces.
 
 ### 1. Create a new repository from this template
+Progress: [🟢⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪] 1/12 (8%)
 
 ⏳ **~2min**
 
@@ -42,6 +43,7 @@ This repository is Codespaces-ready and is pre-configured so that you have all d
 - Click `Create repository`
 
 ### 2. Create a Codespace using the provided template
+Progress: [🟢🟢⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪] 2/12 (16%)
 
 ⏳ **~3min**
 
@@ -57,6 +59,7 @@ This repository is Codespaces-ready and is pre-configured so that you have all d
     > There is no need to push changes back to the repo during the workshop
 
 ### 3. Verify Python is installed and set correctly
+Progress: [🟢🟢🟢⚪⚪⚪⚪⚪⚪⚪⚪⚪] 3/12 (25%)
 
 ⏳ **~2min**
 
@@ -65,6 +68,7 @@ This repository is Codespaces-ready and is pre-configured so that you have all d
 - Run `which pip` and ensure that it also points to the Virtual Environment (`home/vscode/venv/bin/pip`)
 
 ### 4. Run the Python scripts
+Progress: [🟢🟢🟢🟢⚪⚪⚪⚪⚪⚪⚪⚪] 4/12 (33%)
 
 ⏳ **~2min**
 
@@ -92,6 +96,7 @@ This repository is Codespaces-ready and is pre-configured so that you have all d
     ```
 
 ### 5. Open relevant files
+Progress: [🟢🟢🟢🟢🟢⚪⚪⚪⚪⚪⚪⚪] 5/12 (41%)
 
 ⏳ **~2min**
 
@@ -102,6 +107,7 @@ GitHub Copilot benefits from having context. One way to enhance context is by op
 ## Development
 
 ### 1. See how much you can learn about the project and the data
+Progress: [🟢🟢🟢🟢🟢🟢⚪⚪⚪⚪⚪⚪] 6/12 (50%) - Half way through!
 
 ⏳ **~5min**
 
@@ -110,6 +116,7 @@ GitHub Copilot benefits from having context. One way to enhance context is by op
 - Again, with the `@workspace` agent, ask Copilot what is the nature of the data you are going to work with
 
 #### 2. Fix the high ratings function
+Progress: [🟢🟢🟢🟢🟢🟢🟢⚪⚪⚪⚪⚪] 7/12 (58%)
 
 ⏳ **~3min**
 
@@ -145,6 +152,8 @@ Based on the provided code, there are a few potential reasons why the `select_hi
 > Feel free to use the GitHub Copilot Chat to implement or corroborate the fix
 
 #### 3. Fix the one-hot encoding problem
+Progress: [🟢🟢🟢🟢🟢🟢🟢🟢⚪⚪⚪⚪] 8/12 (66%)
+
 
 ⏳ **~3min**
 
@@ -179,6 +188,7 @@ def drop_and_one_hot_encode_red_wine(df):
 </details>
 
 #### 4. Fix the ratings conversion to int
+Progress: [🟢🟢🟢🟢🟢🟢🟢🟢🟢⚪⚪⚪] 9/12 (75%)
 
 ⏳ **~3min**
 
@@ -219,6 +229,8 @@ A robust Python project can benefit from testing. You will add some unit tests a
 Make sure you have the terminal open by running the command palette and typing `toggle terminal`
 
 ### 1. Test your CLI
+Progress: [🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢⚪⚪] 10/12 (83%)
+
 
 ⏳ **~5min**
 
@@ -228,6 +240,7 @@ Make sure you have the terminal open by running the command palette and typing `
 The output should give you a failure.
 
 #### 2. Fix the failing test
+Progress: [🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢⚪] 11/12 (91%)
 
 ⏳ **~5min**
 
@@ -249,6 +262,7 @@ Fix the test case: Ensure the column name in the test case matches the column na
 </details>
 
 #### 3. Add tests for the one hot encoding function
+Progress: [🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢] 12/12 (100%) - 🎉 Celebrate!
 
 ⏳ **~5min**
 
@@ -321,6 +335,8 @@ def test_drop_and_one_hot_encode_red_wine_dataframe_unchanged():
 There are a couple of bonus challenges if you've completed all the tasks and your scripts are in good shape.
 
 ### Bonus Challenge 1 - Create a robust CLI tool
+Progress: [🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢] 12/12 (100%) 🎉  
+Optional: [🚀 Turbo Boost! (1/2) 50%]  
 
 - Use GitHub Copilot chat with the `@workspace` prefix to convert the project into a CLI with options and a help menu
 - Ensure that the prompt specifies no external dependencies and it should only use the standard library
@@ -374,6 +390,9 @@ if __name__ == "__main__":
 </details>
 
 ### Bonus Challenge 2 - Document your project
+Progress: [🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢] 12/12 (100%) 🎉  
+Optional: [🚀 Turbo Boost! (1/2) 50%]  
+Optional: [🌟 Extra Points! (2/2) 100% 🏆]
 
 - Create a new `docs/` folder and a file called `README.md`
 - Use GitHub Copilot chat with the `@workspace` prefix to get started documenting your project using Markdown in a README.md
