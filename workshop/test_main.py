@@ -5,13 +5,13 @@ import main
 
 def test_drop_notes_column_dropped():
     # Create a sample DataFrame with 'notes' column
-    df = pd.DataFrame({'A': [1, 2, 3], 'B': [4, 5, 6], 'note': ['note1', 'note2', 'note3']})
+    df = pd.DataFrame({'A': [1, 2, 3], 'B': [4, 5, 6], 'notes': ['note1', 'note2', 'note3']})
 
     # Call the drop_notes function
-    result = main.drop_notes(df)
+    main.drop_notes(df)
     
     # Assert that 'notes' column is dropped
-    columns = result.columns.to_list()
+    columns = df.columns.to_list()
     assert columns == ['A', 'B']
     
     
