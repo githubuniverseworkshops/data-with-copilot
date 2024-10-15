@@ -192,6 +192,7 @@ Progress: [🟢🟢🟢🟢🟢🟢🟢🟢🟢⚪⚪⚪] 9/12 (75%)
 
 ⏳ **~3min**
 
+- If your `verify_ratings_to_int` check is already "OK", then Copilot may have already fixed this issue for you. If not, continue with the following steps.
 - Select the `convert_ratings_to_int()` function and open inline chat (Ctrl-i / Cmd-i)
 - Use the `/explain` slash command to ask GitHub Copilot why this function might not be working correctly
 - Identify the problem and implement the fix
@@ -244,20 +245,39 @@ Progress: [🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢⚪] 11/12 (91%)
 
 ⏳ **~5min**
 
-- Select the output in the terminal and paste it into GitHub Copilot Chat
+- Select the output in the terminal and paste it into GitHub Copilot Chat, prefixing with a request for a fix and an explanation
 - Use the output from the chat to implement a fix in `test_main.py`
 
 <details>
 <summary>Cheatsheet</summary>
 
+##### Prompt
+
+```sh
+Fix the test and explain your fix:
+// Copy and paste the output from the terminal here
+```
 
 ##### Expected output
 
-The error indicates that the drop_notes function did not drop the 'note' column as expected. This is likely due to a typo in the test case where the column name is 'note' instead of 'notes'.
+The error occurs because the drop_notes function is likely modifying the DataFrame in place, rather than returning a new DataFrame with the 'notes' column dropped. To fix the test, we need to ensure that the drop_notes function returns a new DataFrame without the 'notes' column and then check the columns of this new DataFrame.
 
-**Plan**
+Here is the corrected test function:
 
-Fix the test case: Ensure the column name in the test case matches the column name expected by the drop_notes function.
+```
+def test_drop_notes_column_dropped():
+    # Create a sample DataFrame with 'notes' column
+    df = pd.DataFrame({'A': [1, 2, 3], 'B': [4, 5, 6], 'notes': ['note1', 'note2', 'note3']})
+
+    # Call the drop_notes function and get the result
+    result = main.drop_notes(df)
+    
+    # Assert that 'notes' column in result dataframe is dropped
+    columns = result.columns.to_list()
+    assert columns == ['A', 'B']
+```
+
+By storing the result of the drop_notes function in a new variable and checking its columns, we ensure that the test correctly verifies the behavior of the function.
 
 </details>
 
@@ -270,7 +290,7 @@ Progress: [🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢] 12/12 (100%) - 🎉
 - Select the `drop_and_one_hot_encode_red_wine` function in `main.py`
 - Open inline chat with `Ctrl-i`/`Cmd-i`
 - Use the `/tests` slash command to get suggestions on tests
-- Review the output, accept it, and verify with the `pytest -v` command. All tests should be passing, and you should have more tests than before.
+- Review the output, accept it, and verify with the `pytest -v` command. All tests should be passing, and you should have more tests than before. Sometimes Copilot will indent the suggested tests incorrectly (nesting them inside an existing test function), so make sure the tests are correctly indented before running them.
 
 <details>
 <summary>Cheatsheet</summary>

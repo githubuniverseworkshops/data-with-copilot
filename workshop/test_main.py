@@ -5,15 +5,15 @@ import main
 
 def test_drop_notes_column_dropped():
     # Create a sample DataFrame with 'notes' column
-    df = pd.DataFrame({'A': [1, 2, 3], 'B': [4, 5, 6], 'note': ['note1', 'note2', 'note3']})
+    df = pd.DataFrame({'A': [1, 2, 3], 'B': [4, 5, 6], 'notes': ['note1', 'note2', 'note3']})
 
-    # Call the drop_notes function
+    # Call the drop_notes function and get the result
     result = main.drop_notes(df)
     
-    # Assert that 'notes' column is dropped
+    # Assert that 'notes' column in result dataframe is dropped
     columns = result.columns.to_list()
     assert columns == ['A', 'B']
-    
+
     
 def test_drop_notes_columns_present():
     # Create a sample DataFrame with 'notes' column
@@ -81,3 +81,59 @@ def test_remove_newlines_shape_is_unchanged():
 
     # Assert that the shape of the DataFrame is unchanged
     assert result.shape == (2, 2)
+    # Test Drop and One Hot Encode Red Wine
+
+def test_drop_and_one_hot_encode_red_wine_column_added():
+    # Create a sample DataFrame with 'variety' column
+    df = pd.DataFrame({'A': [1, 2, 3], 'variety': ['Red Wine', 'White Wine', 'Red Wine']})
+
+    # Call the drop_and_one_hot_encode_red_wine function
+    result = main.drop_and_one_hot_encode_red_wine(df)
+
+    # Assert that 'Red_Wine' column is added
+    assert 'Red_Wine' in result.columns
+
+def test_drop_and_one_hot_encode_red_wine_column_dropped():
+    # Create a sample DataFrame with 'variety' column
+    df = pd.DataFrame({'A': [1, 2, 3], 'variety': ['Red Wine', 'White Wine', 'Red Wine']})
+
+    # Call the drop_and_one_hot_encode_red_wine function
+    result = main.drop_and_one_hot_encode_red_wine(df)
+
+    # Assert that 'variety' column is dropped
+    assert 'variety' not in result.columns
+
+def test_drop_and_one_hot_encode_red_wine_values():
+    # Create a sample DataFrame with 'variety' column
+    df = pd.DataFrame({'A': [1, 2, 3], 'variety': ['Red Wine', 'White Wine', 'Red Wine']})
+
+    # Call the drop_and_one_hot_encode_red_wine function
+    result = main.drop_and_one_hot_encode_red_wine(df)
+
+    # Assert that 'Red_Wine' column has correct values
+    assert result['Red_Wine'].tolist() == [1, 0, 1]
+
+def test_drop_and_one_hot_encode_red_wine_shape_unchanged():
+    # Create a sample DataFrame with 'variety' column
+    df = pd.DataFrame({'A': [1, 2, 3], 'variety': ['Red Wine', 'White Wine', 'Red Wine']})
+
+    # Call the drop_and_one_hot_encode_red_wine function
+    result = main.drop_and_one_hot_encode_red_wine(df)
+
+    # Assert that the shape of the DataFrame is unchanged
+    assert result.shape == (3, 2)
+
+def test_drop_and_one_hot_encode_red_wine_original_unchanged():
+    # Create a sample DataFrame with 'variety' column
+    df = pd.DataFrame({'A': [1, 2, 3], 'variety': ['Red Wine', 'White Wine', 'Red Wine']})
+
+    # Call the drop_and_one_hot_encode_red_wine function
+    result = main.drop_and_one_hot_encode_red_wine(df)
+    
+    # Assert that the original DataFrame is not modified
+    assert 'variety' in df.columns
+    assert df.shape == (3, 3)
+
+    # Assert that the shape of the result Dataframe is different
+    assert result.shape != df.shape
+    assert result.shape == (3, 2)
