@@ -57,7 +57,8 @@ Progress: [🟢🟢⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪] 2/12 (16%)
     cd <YOUR_REPO_NAME>
     ```
 
-    > 📝 **Note:** There is no need to push changes back to the repo during the workshop
+    > [!NOTE]
+    > There is no need to push changes back to the repo during the workshop
 
 ### 3. Verify Python is installed and set correctly
 
@@ -365,7 +366,7 @@ There are a couple of bonus challenges if you've completed all the tasks and you
 ### Bonus Challenge 1 - Create a robust CLI tool
 
 Progress: [🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢] 12/12 (100%) 🎉  
-Optional: [🚀 Turbo Boost! (1/2) 33%]  
+Optional: [🚀 Turbo Boost! (1/2) 50%]  
 
 - Use GitHub Copilot chat with the `@workspace` prefix to convert the project into a CLI with options and a help menu
 - Ensure that the prompt specifies no external dependencies and it should only use the standard library
@@ -422,8 +423,8 @@ if __name__ == "__main__":
 ### Bonus Challenge 2 - Document your project
 
 Progress: [🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢] 12/12 (100%) 🎉  
-Optional: [🚀 Turbo Boost! (1/2) 33%]  
-Optional: [🌟 Extra Points! (2/2) 66%]
+Optional: [🚀 Turbo Boost! (1/2) 50%]  
+Optional: [🌟 Extra Points! (2/2) 100% 🏆]
 
 - Create a new `docs/` folder and a file called `README.md`
 - Use GitHub Copilot chat with the `@workspace` prefix to get started documenting your project using Markdown in a README.md
@@ -540,83 +541,6 @@ This project is licensed under the MIT License. See the [LICENSE](../LICENSE) fi
 
 </details>
 
-### Bonus Challenge 3 - Automate the data transformation
-
-Progress: [🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢] 12/12 (100%) 🎉  
-Optional: [🚀 Turbo Boost! (1/2) 33%]  
-Optional: [🌟 Extra Points! (2/2) 66%]
-Optional: [🏆 Triple Threat! (2/2) 100%]
-
-- Create a new file called `transform-data.yaml` in the `.github/workflows/` directory.
-- Use GitHub Copilot chat with the `@workspace` prefix to create a GitHub Action that will transform the data whenever a push or pull request is made to the repository.
-- Open a pull request to test the action. If any errors occur, use the GitHub Copilot chat to help you fix them.
-
-<details>
-<summary>Cheatsheet</summary>
-
-#### Prompt
-
-```shell
-@workspace Generate a GitHub action that transforms the data on every push and pull request 
-```
-
-#### Expected output
-
-```markdown
-To create a GitHub Action that will transform the data using your CLI, you can create a workflow file in the `.github/workflows` directory. Here is an example of a GitHub Action workflow file named `transform-data.yml`:
-
-    ```yaml
-    name: Transform Data
-
-    on:
-    push:
-        branches:
-        - main
-    workflow_dispatch:
-
-    jobs:
-    transform:
-        runs-on: ubuntu-latest
-
-        steps:
-        - name: Checkout repository
-        uses: actions/checkout@v2
-
-        - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-            python-version: '3.x'
-
-        - name: Install dependencies
-        run: |
-            python -m venv venv
-            source venv/bin/activate
-            pip install pandas
-
-        - name: Run data transformation
-        run: |
-            source venv/bin/activate
-            python workshop/main.py run_all
-
-        - name: Upload transformed data
-        uses: actions/upload-artifact@v4
-        with:
-            name: transformed-data
-            path: workshop/transformed_train.csv
-    ```
-
-This workflow will:
-
-* Trigger on pushes to the main branch and on manual dispatch.
-* Check out the repository.
-* Set up Python.
-* Install the necessary dependencies (in this case, pandas).
-* Run the data transformation using the run_all command from your CLI.
-* Upload the transformed data as an artifact.
-```
-
-</details>
-
 ## Clean-up
 
 ### 1. Delete your Codespace
@@ -626,13 +550,3 @@ This workflow will:
 Before deleting, if you wish, you can push your changes. Remember workshop repositories are temporary too.
 
 Go to [https://github.com/codespaces](https://github.com/codespaces) and find your current running Codespace and delete it.
-
-## Additional resources
-
-If you want to learn more about using GitHub Copilot, check out these resources:
-
-* [GitHub Copilot Documentation](https://docs.github.com/copilot)
-* [VS Code video series: GitHub Copilot](https://www.youtube.com/playlist?list=PLj6YeMhvp2S7rQaCLRrMnzRdkNdKnMVwg)
-* [Blog: Best practices for prompting Copilot](http://blog.pamelafox.org/2023/06/best-practices-for-prompting-github.html)
-
-Also check out the [GitHub Foundations learning path](https://learn.microsoft.com/training/paths/github-foundations/) for more resources on GitHub and GitHub Copilot.
