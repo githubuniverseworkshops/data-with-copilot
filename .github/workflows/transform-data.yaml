@@ -1,0 +1,40 @@
+name: Transform Data
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  transform:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m venv venv
+        source venv/bin/activate
+        pip install pandas
+
+    - name: Run data transformation
+      run: |
+        source venv/bin/activate
+        python workshop/main.py run_all
+
+    - name: Upload transformed data
+      uses: actions/upload-artifact@v2
+      with:
+        name: transformed-data
+        path: workshop/transformed_train.csv
