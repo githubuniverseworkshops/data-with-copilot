@@ -1,4 +1,5 @@
 import argparse
+import os
 import pandas as pd
 
 
@@ -63,7 +64,9 @@ def main():
     args = parser.parse_args()
 
     # Load your DataFrame here
-    df = pd.read_csv('train.csv')
+    script_dir = os.path.dirname(__file__)
+    csv_path = os.path.join(script_dir, 'train.csv')
+    df = pd.read_csv(csv_path)
 
     if args.command == "drop_notes":
         df = drop_notes(df)
@@ -85,7 +88,8 @@ def main():
         parser.print_help()
 
     # Save the transformed DataFrame
-    df.to_csv('transformed_train.csv', index=False)
+    output_path = os.path.join(script_dir, 'transformed_train.csv')
+    df.to_csv(output_path, index=False)
 
 if __name__ == "__main__":
     main()
