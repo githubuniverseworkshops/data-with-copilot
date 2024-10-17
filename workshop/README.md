@@ -423,7 +423,7 @@ if __name__ == "__main__":
 
 Progress: [🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢] 12/12 (100%) 🎉  
 Optional: [🚀 Turbo Boost! (1/2) 33%]  
-Optional: [🌟 Extra Points! (2/2) 66%]
+Optional: [🌟 Extra Points! (2/2) 66%]  
 
 - Create a new `docs/` folder and a file called `README.md`
 - Use GitHub Copilot chat with the `@workspace` prefix to get started documenting your project using Markdown in a README.md
@@ -544,8 +544,8 @@ This project is licensed under the MIT License. See the [LICENSE](../LICENSE) fi
 
 Progress: [🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢] 12/12 (100%) 🎉  
 Optional: [🚀 Turbo Boost! (1/2) 33%]  
-Optional: [🌟 Extra Points! (2/2) 66%]
-Optional: [🏆 Triple Threat! (2/2) 100%]
+Optional: [🌟 Extra Points! (2/2) 66%]  
+Optional: [🏆 Triple Threat! (2/2) 100%]  
 
 - Create a new file called `transform-data.yaml` in the `.github/workflows/` directory.
 - Use GitHub Copilot chat with the `@workspace` prefix to create a GitHub Action that will transform the data whenever a push or pull request is made to the repository.
@@ -611,7 +611,7 @@ This workflow will:
 * Check out the repository.
 * Set up Python.
 * Install the necessary dependencies (in this case, pandas).
-* Run the data transformation using the run_all command from your CLI.
+* Run the data transformation using the run all command from your CLI.
 * Upload the transformed data as an artifact.
 ```
 
