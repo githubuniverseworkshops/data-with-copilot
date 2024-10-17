@@ -1,29 +1,56 @@
 import argparse
 import pandas as pd
 
+
 def drop_notes(df):
-    return df.drop(columns=['notes'])
-
-def select_high_ratings(df):
-    return df[df['rating'] >= 90]
-
-def drop_and_one_hot_encode_red_wine(df):
-    df = pd.get_dummies(df, columns=['variety'])
-    return df.drop(columns=['variety_Red Wine'])
-
-def remove_newlines_carriage_returns(df):
-    for col in df.select_dtypes(include=['object']).columns:
-        df[col] = df[col].str.replace('\n', '').str.replace('\r', '')
+    """
+    Drop the 'notes' column from the DataFrame.
+    """
+    if 'notes' in df.columns:
+        df = df.drop(columns=['notes'])
     return df
 
+
+def select_high_ratings(df):
+    """
+    Select only rows where the 'rating' column is 90 or higher.
+    """
+    if 'ratings' in df.columns:
+        df = df[df['ratings'] >= 90]
+    return df
+
+
+def drop_and_one_hot_encode_red_wine(df):
+    """
+    Create a 'Red_Wine' column that is 1 if 'variety' is 'Red Wine' and 0 otherwise.
+    Drop the original 'variety' column.
+    """
+    if 'variety' in df.columns:
+        df = pd.get_dummies(df, columns=['variety'], prefix='Red Wine', drop_first=True)
+    return df
+
+
+def remove_newlines_carriage_returns(df):
+    """
+    Remove newlines and carriage returns from all string columns in the DataFrame.
+    """
+    for col in df.select_dtypes(include=['object']).columns:
+        df[col] = df[col].str.replace('\n', ' ').str.replace('\r', ' ')
+    return df
+
+
 def convert_ratings_to_int(df):
-    df['rating'] = df['rating'].astype(int)
+    """
+    Convert the 'rating' column from float to integer.
+    """
+    if 'ratings' in df.columns:
+        df['ratings'] = df['ratings'].to_bool()
     return df
 
 def main():
     parser = argparse.ArgumentParser(description="DataFrame manipulation CLI")
     subparsers = parser.add_subparsers(dest="command")
-    
+
     subparsers.add_parser("drop_notes", help="Drop the 'notes' column from the DataFrame")
     subparsers.add_parser("select_high_ratings", help="Select rows where the 'rating' column is 90 or higher")
     subparsers.add_parser("drop_and_one_hot_encode_red_wine", help="One-hot encode 'Red Wine' and drop 'variety' column")
