@@ -566,43 +566,7 @@ Optional: [🏆 Triple Threat! (2/2) 100%]
 To create a GitHub Action that will transform the data using your CLI, you can create a workflow file in the `.github/workflows` directory. Here is an example of a GitHub Action workflow file named `transform-data.yml`:
 
     ```yaml
-    name: Transform Data
-
-    on:
-    push:
-        branches:
-        - main
-    workflow_dispatch:
-
-    jobs:
-    transform:
-        runs-on: ubuntu-latest
-
-        steps:
-        - name: Checkout repository
-        uses: actions/checkout@v2
-
-        - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-            python-version: '3.x'
-
-        - name: Install dependencies
-        run: |
-            python -m venv venv
-            source venv/bin/activate
-            pip install pandas
-
-        - name: Run data transformation
-        run: |
-            source venv/bin/activate
-            python workshop/main.py run_all
-
-        - name: Upload transformed data
-        uses: actions/upload-artifact@v4
-        with:
-            name: transformed-data
-            path: workshop/transformed_train.csv
+    // Workflow omitted, since this is the final bonus!
     ```
 
 This workflow will:
@@ -611,7 +575,7 @@ This workflow will:
 * Check out the repository.
 * Set up Python.
 * Install the necessary dependencies (in this case, pandas).
-* Run the data transformation using the run all command from your CLI.
+* Run the data transformation using the `run_all` command from your CLI.
 * Upload the transformed data as an artifact.
 ```
 
